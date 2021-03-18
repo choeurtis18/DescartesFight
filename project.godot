@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TS3Fighter"
-run/main_scene="res://scene/scene01.tscn"
+config/name="DescartesFighter"
+run/main_scene="res://scene/menu/MainTileScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
