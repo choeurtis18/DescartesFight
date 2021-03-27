@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/fnt_score.tres" type="DynamicFont" id=1]
+[ext_resource path="res://graphics/BackGround/BackGround_1.png" type="Texture" id=2]
+[ext_resource path="res://script/menuMaps/selectMap.gd" type="Script" id=3]
+[ext_resource path="res://scene/menuMaps/map.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=5]
+
+[node name="selectMap" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="backGround" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.7, 0.7 )
+
+[node name="msg" type="Label" parent="."]
+margin_left = -190.287
+margin_top = -153.769
+margin_right = -63.2867
+margin_bottom = -139.769
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Choisissez une map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="maps" type="Node2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="amphi_1" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( -174.065, -21.0224 )
+
+[node name="amphi_2" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( -58.8628, -20.1815 )
+
+[node name="amphi_3" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( 59.7036, -22.7042 )
+
+[node name="cafet" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( 171.543, -24.386 )
+
+[node name="couloir_1" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( -172.384, 75.6807 )
+
+[node name="couloir_amphi" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( -58.0219, 74.8398 )
+
+[node name="exterieur_1" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( 62.2264, 76.5215 )
+
+[node name="exterieur_2" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( 171.543, 73.9989 )
+
+[node name="Button" parent="." instance=ExtResource( 5 )]
+margin_left = -377.0
+margin_top = -205.0
+margin_right = -255.0
+margin_bottom = -159.0
+text = "BACK"
+reference_path = "res://scene/menuPlayers/selectPlayer.tscn"

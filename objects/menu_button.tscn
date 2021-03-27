@@ -2,7 +2,8 @@
 
 [ext_resource path="res://themes/selected_button_theme.tres" type="StyleBox" id=1]
 [ext_resource path="res://themes/non_selected_theme.tres" type="StyleBox" id=2]
-[ext_resource path="res://code/menu/menu_button.gd" type="Script" id=3]
+[ext_resource path="res://script/menu/menu_button.gd" type="Script" id=3]
+
 
 [node name="Button" type="Button"]
 margin_right = 222.0

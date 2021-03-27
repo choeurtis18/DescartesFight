@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://resources/fnt_score.tres" type="DynamicFont" id=1]
+[ext_resource path="res://graphics/BackGround/BackGround_1.png" type="Texture" id=2]
+[ext_resource path="res://scene/menuPlayers/face.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scene/menuPlayers/preview_player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://script/menuPlayers/selectPlayer.gd" type="Script" id=5]
+[ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=6]
+
+[node name="selectPlayer" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="backGround" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.7, 0.7 )
+
+[node name="msg" type="Label" parent="."]
+margin_left = -268.003
+margin_top = -154.632
+margin_right = -89.0032
+margin_bottom = -140.632
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Choisissez votre combatant"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="portraits" type="Node2D" parent="."]
+position = Vector2( 3.77985, -2.86102e-06 )
+scale = Vector2( 1.3, 1.3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bakari" parent="portraits" instance=ExtResource( 3 )]
+position = Vector2( -125.536, -36.8112 )
+
+[node name="yannis" parent="portraits" instance=ExtResource( 3 )]
+position = Vector2( -46.25, -33.9796 )
+
+[node name="victor" parent="portraits" instance=ExtResource( 3 )]
+position = Vector2( 33.0357, -34.9234 )
+
+[node name="samy" parent="portraits" instance=ExtResource( 3 )]
+position = Vector2( 121.76, -33.0357 )
+
+[node name="farah" parent="portraits" instance=ExtResource( 3 )]
+position = Vector2( -127.423, 50.0255 )
+
+[node name="justine" parent="portraits" instance=ExtResource( 3 )]
+position = Vector2( -35.8673, 49.0816 )
+
+[node name="choeurtis" parent="portraits" instance=ExtResource( 3 )]
+position = Vector2( 52.8571, 52.8571 )
+
+[node name="preview_player1" parent="." instance=ExtResource( 4 )]
+position = Vector2( -302.12, 0 )
+scale = Vector2( 1.8, 1.8 )
+
+[node name="preview_player2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 302.736, 0 )
+scale = Vector2( 1.8, 1.8 )
+
+[node name="Button" parent="." instance=ExtResource( 6 )]
+margin_left = -374.595
+margin_top = -200.657
+margin_right = -291.595
+margin_bottom = -172.657
+text = "Back"
+reference_path = "res://scene/menu/MenuGameType.tscn"
