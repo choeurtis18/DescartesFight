@@ -3,6 +3,7 @@ extends Button
 export var reference_path = ""
 export(bool) var start_focused = false
 
+
 func _ready():
 	if(start_focused):
 		grab_focus()
