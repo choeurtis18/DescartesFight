@@ -21,13 +21,13 @@ func _physics_process(delta):
 	
 func movement_loop():	
 
-	var left = Input.is_action_pressed("buttonq")
-	var right = Input.is_action_pressed("buttond")
-	var jump = Input.is_action_pressed("buttonz")
-	var sneak = Input.is_action_pressed("buttons")
-	var punch = Input.is_action_pressed("buttona")
-	var punch2 = Input.is_action_pressed("buttone")
-	var sp = Input.is_action_pressed("buttonr")
+	var left = Input.is_action_pressed("ui_q")
+	var right = Input.is_action_pressed("ui_d")
+	var jump = Input.is_action_pressed("ui_z")
+	var sneak = Input.is_action_pressed("ui_s")
+	var punch = Input.is_action_pressed("ui_a")
+	var punch2 = Input.is_action_pressed("ui_e")
+	var sp = Input.is_action_pressed("ui_r")
 	
 	var dirx = int(right) - int(left)
 

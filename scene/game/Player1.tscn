@@ -1,0 +1,219 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://graphics/Sprite/JUSTINE.png" type="Texture" id=1]
+[ext_resource path="res://scene/game/PlayerScripts.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=7]
+resource_name = "attacksp"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 0.1, 0.3, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 45, 46, 47, 48, 49, 49 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 25, 25, 26, 27, 28, 29 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 30, 31, 32, 33 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "punch"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 0.1, 0.3, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "punch2"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 0.1, 0.3, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 18, 19 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "sneak"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 35, 36 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "victory"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42, 43 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 70.9736, 1.35282 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 24.834, 48.3201 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5.91043, 5.2864 )
+
+[node name="Player1" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attacksp = SubResource( 7 )
+anims/dead = SubResource( 8 )
+anims/hit = SubResource( 9 )
+anims/idle = SubResource( 2 )
+anims/jump = SubResource( 10 )
+anims/punch = SubResource( 11 )
+anims/punch2 = SubResource( 12 )
+anims/sneak = SubResource( 13 )
+anims/victory = SubResource( 14 )
+anims/walk = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 10
+hframes = 5
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8.89842, 188.806 )
+shape = SubResource( 4 )
+
+[node name="Body" type="Area2D" parent="."]
+position = Vector2( 0, 43.3062 )
+
+[node name="corp" type="CollisionShape2D" parent="Body"]
+position = Vector2( 7.09174, 46.5317 )
+shape = SubResource( 5 )
+
+[node name="Attaks" type="KinematicBody2D" parent="."]
+
+[node name="attakBoxDroite" type="CollisionShape2D" parent="Attaks"]
+position = Vector2( 40.7586, -32.7405 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="attakBoxGauche" type="CollisionShape2D" parent="Attaks"]
+position = Vector2( -41.4268, -32.5178 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 115, 55 )

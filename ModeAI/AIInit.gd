@@ -23,9 +23,9 @@ func getPlayer(player_name):
 	elif player_name == "bakari":
 		return "res://graphics/Sprite/BAKARI.png"
 	elif player_name == "victor":
-		return "res://graphics/Sprite/VICTOR.png"
+		return "res://graphics/Sprite/Vicfinal.png"
 	elif player_name == "yannis":
-		return "res://graphics/Sprite/YANNIS.png"
+		return "res://graphics/Sprite/Yannisfinal.png"
 	elif player_name == "justine":
-		return "res://graphics/Sprite/JUSTINE.png"
+		return "res://graphics/Sprite/Justinefinal.png"
 	

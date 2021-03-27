@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 6 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ 5 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -116,8 +116,8 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 1 )
-hframes = 5
-frame = 2
+hframes = 7
+frame = 6
 
 [node name="nom" type="Label" parent="."]
 margin_left = -16.0
