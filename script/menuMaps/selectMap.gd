@@ -9,8 +9,6 @@ onready var backGround = get_node("backGround")
 onready var msg = get_node("msg")
 onready var maps = get_node("maps")
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	for map in maps.get_children():
 		if map.name == "amphi_1" :
@@ -48,8 +46,13 @@ func _process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			Global.map = name
 			map_select = true
-			get_tree().change_scene("res://scene/sceneGame01.tscn")
-	
+			
+			print(Global.typeGame)
+			
+			if Global.typeGame == "MODE 1 VS IA":
+				get_tree().change_scene("res://ModeAI/AI.tscn")
+			elif Global.typeGame == "MODE 1 VS 1":
+				get_tree().change_scene("res://ModeMulti/Multi.tscn")
 	
 func getNameMap(id):
 	if id == 1:
