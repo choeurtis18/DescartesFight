@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var animationPlayer = get_node("AnimationPlayer")
+
 var vel = Vector2()
 var GRAVITY = 1000
 export (int) var max_speed = 300
@@ -8,10 +10,10 @@ const  ACCEL = 10
 
 func _ready():
 	pass
-	
+
 func setSprite(nom):
 	var image = load(nom)
-	$SpriteJ1.set_texture(image)
+	$Sprite.set_texture(image)
 	
 func _physics_process(delta):
 	
@@ -19,7 +21,7 @@ func _physics_process(delta):
 	movement_loop()
 	vel = move_and_slide(vel,UP)
 	
-func movement_loop():	
+func movement_loop():
 
 	var left = Input.is_action_pressed("ui_q")
 	var right = Input.is_action_pressed("ui_d")
@@ -32,26 +34,32 @@ func movement_loop():
 	var dirx = int(right) - int(left)
 
 	if sneak == true :
-		$animationJ1.play("sneak")
+		$AnimationPlayer.play("sneak")
 	elif is_on_floor()==false:
-		$animationJ1.play("jump")
-	elif punch == true:
-		$animationJ1.play("punch")
-	elif punch2 == true:
-		$animationJ1.play("punch2")
-	elif sp == true:
-		$animationJ1.play("attacksp")
+		$AnimationPlayer.play("jump")
+	elif punch == true && punch2 == false && sp == false:
+		if is_on_floor():
+			vel.x = 0
+		$AnimationPlayer.play("punch")
+	elif punch2 == true && punch == false && sp == false:
+		if is_on_floor():
+			vel.x = 0
+		$AnimationPlayer.play("punch2")
+	elif sp == true && punch2 == false && punch == false:
+		if is_on_floor():
+			vel.x = 0
+		$AnimationPlayer.play("attacksp")
 	elif dirx != 0:
-		$animationJ1.play("walk")
+		$AnimationPlayer.play("walk")
 	else :
-		$animationJ1.play("idle")
+		$AnimationPlayer.play("idle")
 	
 	if dirx == -1 :
 		vel.x = max(vel.x - ACCEL, -max_speed)
-		$SpriteJ1.flip_h = true #inverse les sprites
+		$Sprite.flip_h = true #inverse les sprites
 	elif dirx == 1 :
 		vel.x = min(vel.x + ACCEL, +max_speed)
-		$SpriteJ1.flip_h = false
+		$Sprite.flip_h = false
 	else:
 		vel.x = lerp(vel.x, 0,0.15)
 	
