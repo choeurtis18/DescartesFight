@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scene/game/Player2.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 688.266, 10 )
+
+[node name="Test" type="Node2D"]
+
+[node name="Player1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 517.981, 176.901 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 591.991, 588.628 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
