@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/btn_continuer.gd" type="Script" id=2]
+[ext_resource path="res://ModeMulti/Pause.gd" type="Script" id=3]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+margin_right = 1102.0
+margin_bottom = 599.0
+color = Color( 0, 0, 0, 0.470588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" parent="Pause" instance=ExtResource( 1 )]
+margin_left = 400.0
+margin_top = 117.0
+margin_right = 685.0
+margin_bottom = 192.0
+action_mode = 0
+text = "CONTINUE"
+script = ExtResource( 2 )
+
+[node name="Button2" parent="Pause" instance=ExtResource( 1 )]
+margin_left = 397.175
+margin_top = 237.413
+margin_right = 687.175
+margin_bottom = 307.413
+text = "MENU"
+reference_path = "res://scene/menu/MainTileScreen.tscn"
+
+[node name="Button" parent="Pause" instance=ExtResource( 1 )]
+margin_left = 395.524
+margin_top = 357.685
+margin_right = 688.524
+margin_bottom = 433.685
+text = "EXIT"

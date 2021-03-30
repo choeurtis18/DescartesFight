@@ -3,6 +3,7 @@ extends KinematicBody2D
 var life:int = 100
 var dead = false
 var isHit = false
+var endGame = false
 
 var vel = Vector2()
 var GRAVITY = 1000
@@ -20,6 +21,8 @@ func _physics_process(delta):
 	vel.y += GRAVITY * delta
 	if dead == false:
 		movement_loop()
+	elif endGame == true:
+		get_parent().get_node("Player2/AnimationPlayer").play("victory")
 	vel = move_and_slide(vel, UP*delta)
 	
 func movement_loop():
@@ -107,6 +110,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	#desactive l'animation hit
 	elif anim_name == "hit":
 		isHit = false
+	elif anim_name == "dead":
+		endGame = true
+	elif anim_name == "victory":
+		get_tree().change_scene("res://scene/menu/MainTileScreen.tscn")
 
 func filpAttaksArea(position):
 	#selectionner la bonne hitbox en fonction de la position du perso
