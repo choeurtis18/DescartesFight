@@ -17,7 +17,6 @@ func init():
 	pass
 
 func getPlayer(player_name):
-	print(player_name)
 	if player_name == "samy":
 		return "res://graphics/Sprite/SamyFinal.png"
 	elif player_name == "bakari":
