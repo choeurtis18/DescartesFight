@@ -10,7 +10,7 @@
 script = ExtResource( 3 )
 
 [node name="backGround" type="Sprite" parent="."]
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.33, 0.32 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true

@@ -8,10 +8,11 @@
 [ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=6]
 
 [node name="selectPlayer" type="Node2D"]
+position = Vector2( 395.559, 117.599 )
 script = ExtResource( 5 )
 
 [node name="backGround" type="Sprite" parent="."]
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.33, 0.32 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
