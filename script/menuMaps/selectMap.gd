@@ -50,7 +50,7 @@ func _process(delta):
 			print(Global.typeGame)
 			
 			if Global.typeGame == "MODE 1 VS IA":
-				get_tree().change_scene("res://ModeAI/AI.tscn")
+				get_tree().change_scene("res://ModeAI/IA.tscn")
 			elif Global.typeGame == "MODE 1 VS 1":
 				get_tree().change_scene("res://ModeMulti/Multi.tscn")
 	
