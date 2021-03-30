@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scene/game/HpControl.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scene/game/PlayerFinal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scene/game/Area2DTest.gd" type="Script" id=3]
+[ext_resource path="res://graphics/Ken/Damage2.png" type="Texture" id=4]
+[ext_resource path="res://graphics/Ken/Dead2.png" type="Texture" id=5]
+[ext_resource path="res://graphics/Ken/Waiting1.png" type="Texture" id=6]
+[ext_resource path="res://graphics/Terrain/couloirIUT.png" type="Texture" id=7]
+[ext_resource path="res://graphics/Ken/Waiting2.png" type="Texture" id=9]
+[ext_resource path="res://scene/game/SpControl.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 869.205, 10 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28.0186, 43.7695 )
+
+[node name="scene01" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 526.851, 284.085 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 3.99243, -2.66968 )
+scale = Vector2( 1.9, 1.8 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -9.72095, 283.343 )
+shape = SubResource( 1 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184.139, 50.7968 )
+
+[node name="area" type="Area2D" parent="."]
+position = Vector2( 794.103, 380.57 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="area"]
+frames = SubResource( 2 )
+animation = "Hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+shape = SubResource( 3 )
+
+[node name="HpP1" parent="." instance=ExtResource( 1 )]
+margin_left = 45.0
+margin_top = 45.0
+
+[node name="HpP2" parent="." instance=ExtResource( 1 )]
+margin_left = 900.0
+margin_top = 45.0
+
+[node name="SpControlP1" parent="." instance=ExtResource( 10 )]
+margin_left = 45.0
+margin_top = 550.0
+
+[node name="SpControlP2" parent="." instance=ExtResource( 10 )]
+margin_left = 900.0
+margin_top = 550.0
+[connection signal="area_entered" from="area" to="area" method="_on_Area2D_area_entered"]
+[connection signal="animation_finished" from="area/AnimatedSprite" to="area" method="_on_AnimatedSprite_animation_finished"]

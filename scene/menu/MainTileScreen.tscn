@@ -1,15 +1,33 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://graphics/BackGround/BackGround_2.jpg" type="Texture" id=1]
+[ext_resource path="res://graphics/BackGround/fond.png" type="Texture" id=1]
 [ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/Pixel Intv.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 42
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+outline_color = Color( 0.984314, 0.462745, 0, 1 )
+font_data = ExtResource( 3 )
 
 [node name="MainTileScreen" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 38.0976
-margin_top = 28.5732
-margin_right = 38.0977
-margin_bottom = 28.5732
+margin_left = 685.489
+margin_top = 275.746
+margin_right = 685.489
+margin_bottom = 275.746
+rect_scale = Vector2( 0.322553, 0.274477 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -17,11 +35,11 @@ __meta__ = {
 [node name="background_image" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 153.39
-margin_top = 110.118
-margin_right = 153.39
-margin_bottom = 110.118
-rect_scale = Vector2( 0.65, 0.65 )
+margin_left = -420.0
+margin_top = 89.0
+margin_right = -420.0
+margin_bottom = 89.0
+rect_scale = Vector2( 1.775, 2.025 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 4
@@ -34,39 +52,53 @@ anchor_left = 0.327215
 anchor_top = 0.370962
 anchor_right = 0.571356
 anchor_bottom = 0.704296
-margin_right = 31.4449
-margin_bottom = 19.9996
+margin_left = -1031.76
+margin_top = -656.79
+margin_right = -604.763
+margin_bottom = -438.79
+rect_scale = Vector2( 2.7, 2.7 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="mnuNewGame" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 299.0
-margin_bottom = 70.0
+margin_right = 427.0
+margin_bottom = 69.0
 focus_neighbour_top = NodePath("../mnuExit")
 focus_neighbour_bottom = NodePath("../mnuOptions")
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "NOUVELLE PARTIE"
+flat = true
 reference_path = "res://scene/menu/MenuGameType.tscn"
 
 [node name="mnuOptions" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 74.0
-margin_right = 299.0
-margin_bottom = 145.0
+margin_top = 73.0
+margin_right = 427.0
+margin_bottom = 143.0
 focus_neighbour_top = NodePath("../mnuNewGame")
 focus_neighbour_bottom = NodePath("../mnuExit")
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "OPTIONS"
+flat = true
 reference_path = "res://scene/menu/OptionsScene.tscn"
 
 [node name="mnuExit" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 149.0
-margin_right = 299.0
-margin_bottom = 220.0
+margin_top = 147.0
+margin_right = 427.0
+margin_bottom = 217.0
 focus_neighbour_top = NodePath("../mnuOptions")
 focus_neighbour_bottom = NodePath("../mnuNewGame")
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "QUITTER"
+flat = true

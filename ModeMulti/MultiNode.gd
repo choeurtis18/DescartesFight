@@ -19,12 +19,16 @@ func init():
 func getPlayer(player_name):
 	print(player_name)
 	if player_name == "samy":
-		return "res://graphics/Sprite/SAMY.png"
+		return "res://graphics/Sprite/SamyFinal.png"
 	elif player_name == "bakari":
-		return "res://graphics/Sprite/BAKARI.png"
+		return "res://graphics/Sprite/BakariFinal.png"
 	elif player_name == "victor":
-		return "res://graphics/Sprite/Vicfinal.png"
+		return "res://graphics/Sprite/Victorfinal.png"
 	elif player_name == "yannis":
 		return "res://graphics/Sprite/Yannisfinal.png"
 	elif player_name == "justine":
 		return "res://graphics/Sprite/Justinefinal.png"
+	elif player_name == "farah":
+		return "res://graphics/Sprite/Farahfinal.png"
+	elif player_name == "choeurtis":
+		return "res://graphics/Sprite/Choeurtisfinal.png"

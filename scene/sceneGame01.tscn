@@ -1,13 +1,14 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scene/game/Player2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scene/game/PlayerFinal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/Ken/Waiting2.png" type="Texture" id=2]
 [ext_resource path="res://graphics/Terrain/couloirIUT.png" type="Texture" id=3]
 [ext_resource path="res://graphics/Ken/Dead1.png" type="Texture" id=4]
 [ext_resource path="res://graphics/Ken/Waiting1.png" type="Texture" id=5]
 [ext_resource path="res://graphics/Ken/Dead2.png" type="Texture" id=6]
 [ext_resource path="res://graphics/Ken/Damage2.png" type="Texture" id=7]
-[ext_resource path="res://script/Area2DTest.gd" type="Script" id=8]
+[ext_resource path="res://scene/game/Area2DTest.gd" type="Script" id=8]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 869.205, 10 )
