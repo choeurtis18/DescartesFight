@@ -3,6 +3,7 @@ extends KinematicBody2D
 var life:int = 100
 var dead = false
 var isHit = false
+var endGame = false
 
 var vel = Vector2()
 var GRAVITY = 1000
@@ -20,16 +21,19 @@ func _physics_process(delta):
 	vel.y += GRAVITY * delta
 	if dead == false:
 		movement_loop()
+	elif endGame == true:
+		print("dqzd")
+		get_parent().get_node("Player1/AnimationPlayer").play("victory")
 	vel = move_and_slide(vel, UP*delta)
 	
 func movement_loop():
-	var left = Input.is_action_pressed("ui_left")
-	var right = Input.is_action_pressed("ui_right")
-	var jump = Input.is_action_pressed("ui_up")
-	var sneak = Input.is_action_pressed("ui_down")
-	var punch = Input.is_action_just_pressed("ui_u")
-	var punch2 = Input.is_action_just_pressed("ui_i")
-	var sp = Input.is_action_just_pressed("ui_p")
+	var left = Input.is_action_pressed("ui_k")
+	var right = Input.is_action_pressed("ui_m")
+	var jump = Input.is_action_pressed("ui_o")
+	var sneak = Input.is_action_pressed("ui_l")
+	var punch = Input.is_action_just_pressed("ui_i")
+	var punch2 = Input.is_action_just_pressed("ui_p")
+	var sp = Input.is_action_just_pressed("ui_sep")
 	
 	var dirx = int(right) - int(left) #mouv gauche si -1 droite si 1
 	
@@ -107,6 +111,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	#desactive l'animation hit
 	elif anim_name == "hit":
 		isHit = false
+	elif anim_name == "dead":
+		endGame = true
+	elif anim_name == "victory":
+		get_tree().change_scene("res://scene/menu/MainTileScreen.tscn")
 
 func filpAttaksArea(position):
 	#selectionner la bonne hitbox en fonction de la position du perso
