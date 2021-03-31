@@ -16,15 +16,16 @@ const  ACCEL = 10
 func setSprite(nom):
 	var image = load(nom)
 	$Sprite.set_texture(image)
-	
+
 func _physics_process(delta):
 	vel.y += GRAVITY * delta
-	if dead == false:
-		movement_loop()
-	elif endGame == true:
-		get_parent().get_node("Player2/AnimationPlayer").play("victory")
 	vel = move_and_slide(vel, UP*delta)
-	
+	if get_parent().get_node("Player2").life <= 0:
+		endGame = true
+		$AnimationPlayer.play("victory")
+	elif dead == false and endGame == false:
+		movement_loop()
+
 func movement_loop():
 	var left = Input.is_action_pressed("ui_q")
 	var right = Input.is_action_pressed("ui_d")
@@ -42,6 +43,7 @@ func movement_loop():
 		print(life)
 	elif life <= 0 && $AnimationPlayer.current_animation != "dead":
 		dead = true
+		endGame = true
 		$AnimationPlayer.play("dead")
 	elif sneak == true && dirx == 0 :
 		$AnimationPlayer.play("sneak")
@@ -81,7 +83,6 @@ func movement_loop():
 	if jump == true and is_on_floor():
 		vel.y = -700
 
-
 func _on_Body_area_entered(area):
 	if area.get_name() == "AttackArea":
 		isHit = true
@@ -113,7 +114,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	elif anim_name == "dead":
 		endGame = true
 	elif anim_name == "victory":
-		get_tree().change_scene("res://scene/menu/MainTileScreen.tscn")
+		Global.stateGame = "vP1"
+		get_tree().paused = true
+		get_parent().get_node("CanvasLayer/End").go()
 
 func filpAttaksArea(position):
 	#selectionner la bonne hitbox en fonction de la position du perso

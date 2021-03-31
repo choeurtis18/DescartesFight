@@ -6,12 +6,14 @@ onready var playerJ2 = get_node("Player2")
 
 var pathP1 = getPlayer(Global.player1)
 var pathP2 = getPlayer(Global.player2)
-	
+var pathMap = getMap(Global.map)
+
 func _ready():
 	playerJ1.setSprite(pathP1)
 	playerJ2.setSprite(pathP2)
-	#var image_map = "res://graphics/Terrain/"+Global.map
-	#$Area2D/Sprite.set_texture(load(image_map))
+	
+	var image = load(pathMap)
+	$Area2D/Sprite.set_texture(image)
 
 func init():
 	pass
@@ -31,3 +33,17 @@ func getPlayer(player_name):
 		return "res://graphics/Sprite/Farahfinal.png"
 	elif player_name == "choeurtis":
 		return "res://graphics/Sprite/Choeurtisfinal.png"
+
+func getMap(map_name):
+	if map_name == "map1":
+		return "res://graphics/maps/map1.jpg"
+	elif map_name == "map2":
+		return "res://graphics/maps/map2.jpg"
+	elif map_name == "map3":
+		return "res://graphics/maps/map3.jpg"
+	elif map_name == "map4":
+		return "res://graphics/maps/map4.jpg"
+	elif map_name == "map5":
+		return "res://graphics/maps/map5.jpg"
+	elif map_name == "map6":
+		return "res://graphics/maps/map6.jpg"

@@ -3,6 +3,7 @@ extends KinematicBody2D
 var life:int = 100
 var dead = false
 var isHit = false
+var endGame = false
 
 var vel = Vector2()
 var GRAVITY = 1000
@@ -11,6 +12,12 @@ export (int) var max_speed = 200
 const UP = Vector2(0, -1)
 const  ACCEL = 10
 
+onready var cooldownTimer := $Cooldown
+export var cooldown: float = 1
+
+func _ready():
+	$AnimationAI.play("sneak")
+
 
 func setSprite(nom):
 	var image = load(nom)
@@ -18,14 +25,16 @@ func setSprite(nom):
 	
 func _physics_process(delta):
 	vel.y += GRAVITY * delta
-	if dead == false:
+	if get_parent().get_node("Player1").life <= 0:
+		endGame = true
+		$AnimationAI.play("victory")
+	elif dead == false and endGame == false:
 		movement_loop(delta)
 	vel = move_and_slide(vel, UP*delta)
-	
-	
+
 func movement_loop(delta):
-	var player=get_parent().get_node("Player")
-	var dirx=(player.position - position).normalized()
+	var player=get_parent().get_node("Player1")
+	var dirx=(player.position-position).normalized()
 	var motion = dirx * max_speed * delta
 	
 	var x = player.position.x - position.x
@@ -36,10 +45,13 @@ func movement_loop(delta):
 	elif life <= 0 && $AnimationAI.current_animation != "dead":
 		dead = true
 		$AnimationAI.play("dead")
-	elif -120<x and x<120 :
-		if isAttaking == false:
-			attack()
-		vel.x = 0
+	elif -100<x and x<100 :
+		if cooldownTimer.is_stopped():
+			cooldownTimer.start(cooldown)
+			if isAttaking == false:
+				attack()
+			vel.x = 0
+
 	else: 
 		if x < 0 :
 			vel.x = max(vel.x - ACCEL, -max_speed)
@@ -52,11 +64,7 @@ func movement_loop(delta):
 		if(yield($AnimationAI, "animation_finished")):
 			$AnimationAI.play("walk")
 
-	#if jump == true and is_on_floor():
-	#	vel.y = -700
-
-
-func attack():    
+func attack():   
 	var t = RandomNumberGenerator.new()
 	t.randomize()
 	var n = t.randi_range ( 1, 2 )
@@ -77,12 +85,11 @@ func _on_Body_area_entered(area):
 		var spControl = get_parent().get_node("SpControlJ1").get_node("Sp")
 		var hpControl = get_parent().get_node("HpControlJ2").get_node("Hp")
 		
-		print(Global.typeAttackJ2)
-		if Global.typeAttackJ2 == "punch" or Global.typeAttackIA == "punch":
+		if Global.typeAttackJ2 == "punch" or Global.typeAttackJ1 == "punch":
 			life = life - 10
 			hpControl.value -=10
 			spControl.value += 15
-		elif Global.typeAttackJ2 == "punch2" or Global.typeAttackIA == "punch2":
+		elif Global.typeAttackJ2 == "punch2" or Global.typeAttackJ1 == "punch2":
 			life = life - 15
 			hpControl.value -=15
 			spControl.value += 20
@@ -99,6 +106,12 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	#desactive l'animation hit
 	elif anim_name == "hit":
 		isHit = false
+	elif anim_name == "dead":
+		endGame = true
+	elif anim_name == "victory":
+		Global.stateGame = "vIA"
+		get_tree().paused = true
+		get_parent().get_node("CanvasLayer/End").go()
 
 func filpAttaksArea(position):
 	#selectionner la bonne hitbox en fonction de la position du perso

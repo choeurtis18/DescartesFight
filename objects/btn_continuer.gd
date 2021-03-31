@@ -16,6 +16,7 @@ func _on_Button_mouse_entered():
 	grab_focus()
 
 func _on_Button_Pressed():
+	
 	get_parent().get_tree().paused = false
 	get_parent().visible = false
 	print(visible)

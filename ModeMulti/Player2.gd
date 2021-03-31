@@ -19,12 +19,12 @@ func setSprite(nom):
 	
 func _physics_process(delta):
 	vel.y += GRAVITY * delta
-	if dead == false:
-		movement_loop()
-	elif endGame == true:
-		print("dqzd")
-		get_parent().get_node("Player1/AnimationPlayer").play("victory")
 	vel = move_and_slide(vel, UP*delta)
+	if get_parent().get_node("Player1").life <= 0:
+		endGame = true
+		$AnimationPlayer.play("victory")
+	elif dead == false and endGame == false:
+		movement_loop()
 	
 func movement_loop():
 	var left = Input.is_action_pressed("ui_k")
@@ -33,7 +33,7 @@ func movement_loop():
 	var sneak = Input.is_action_pressed("ui_l")
 	var punch = Input.is_action_just_pressed("ui_i")
 	var punch2 = Input.is_action_just_pressed("ui_p")
-	var sp = Input.is_action_just_pressed("ui_sep")
+	var sp = Input.is_action_just_pressed("ui_spe")
 	
 	var dirx = int(right) - int(left) #mouv gauche si -1 droite si 1
 	
@@ -43,6 +43,7 @@ func movement_loop():
 		print(life)
 	elif life <= 0 && $AnimationPlayer.current_animation != "dead":
 		dead = true
+		endGame = true
 		$AnimationPlayer.play("dead")
 	elif sneak == true && dirx == 0 :
 		$AnimationPlayer.play("sneak")
@@ -82,19 +83,18 @@ func movement_loop():
 	if jump == true and is_on_floor():
 		vel.y = -700
 
-
 func _on_Body_area_entered(area):
 	if area.get_name() == "AttackArea":
 		isHit = true
 		var spControl = get_parent().get_node("SpControlJ1").get_node("Sp")
 		var hpControl = get_parent().get_node("HpControlJ2").get_node("Hp")
 		
-		print(Global.typeAttackJ1)
-		if Global.typeAttackJ1 == "punch" or Global.typeAttackIA == "punch":
+		print(Global.typeAttackJ2)
+		if Global.typeAttackJ2 == "punch" or Global.typeAttackIA == "punch":
 			life = life - 10
 			hpControl.value -=10
 			spControl.value += 15
-		elif Global.typeAttackJ1 == "punch2" or Global.typeAttackIA == "punch2":
+		elif Global.typeAttackJ2 == "punch2" or Global.typeAttackIA == "punch2":
 			life = life - 15
 			hpControl.value -=15
 			spControl.value += 20
@@ -114,7 +114,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	elif anim_name == "dead":
 		endGame = true
 	elif anim_name == "victory":
-		get_tree().change_scene("res://scene/menu/MainTileScreen.tscn")
+		Global.stateGame = "vP2"
+		get_tree().paused = true
+		get_parent().get_node("CanvasLayer/End").go()
 
 func filpAttaksArea(position):
 	#selectionner la bonne hitbox en fonction de la position du perso

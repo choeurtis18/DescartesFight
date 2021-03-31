@@ -11,22 +11,18 @@ onready var maps = get_node("maps")
 
 func _ready():
 	for map in maps.get_children():
-		if map.name == "amphi_1" :
-			map.set_map("amphi_1")
-		elif map.name == "amphi_2" :
-			map.set_map("amphi_2")
-		elif map.name == "amphi_3" :
-			map.set_map("amphi_3")
-		elif map.name == "cafet" :
-			map.set_map("cafet")
-		elif map.name == "couloir_1" :
-			map.set_map("couloir_1")
-		elif map.name == "couloir_amphi" :
-			map.set_map("couloir_amphi")
-		elif map.name == "exterieur_1" :
-			map.set_map("exterieur_1")
-		elif map.name == "exterieur_2" :
-			map.set_map("exterieur_2")
+		if map.name == "map1" :
+			map.set_map("map1")
+		elif map.name == "map2" :
+			map.set_map("map2")
+		elif map.name == "map3" :
+			map.set_map("map3")
+		elif map.name == "map4" :
+			map.set_map("map4")
+		elif map.name == "map5" :
+			map.set_map("map5")
+		elif map.name == "map6" :
+			map.set_map("map6")
 
 
 func _process(delta):
@@ -56,21 +52,17 @@ func _process(delta):
 	
 func getNameMap(id):
 	if id == 1:
-		return "amphi_1"
+		return "map1"
 	if id == 2:
-		return "amphi_2"
+		return "map2"
 	if id == 3:
-		return "amphi_3"
+		return "map3"
 	if id == 4:
-		return "cafet"
+		return "map4"
 	if id == 5:
-		return "couloir_1"
+		return "map5"
 	if id == 6:
-		return "couloir_amphi"
-	if id == 7:
-		return "exterieur_1"
-	if id == 8:
-		return "exterieur_2"
+		return "map6"
 
 func shine_map(id):
 	for map in maps.get_children():

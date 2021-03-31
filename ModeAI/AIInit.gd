@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var playerJ1 = get_node("Player")
-onready var playerJ2 = get_node("IA")
+onready var playerJ1 = get_node("Player1")
+onready var playerJ2 = get_node("Player2")
 
 var pathP1 = getPlayer(Global.player1)
 var pathP2 = getPlayer(Global.player2)

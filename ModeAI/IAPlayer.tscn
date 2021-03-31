@@ -189,7 +189,7 @@ anims/walk = SubResource( 10 )
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 5
-frame = 8
+frame = 45
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8.89842, 188.806 )
@@ -218,5 +218,8 @@ disabled = true
 position = Vector2( -99.9548, 75.5654 )
 shape = SubResource( 13 )
 disabled = true
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
 [connection signal="animation_finished" from="AnimationAI" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Body" to="." method="_on_Body_area_entered"]

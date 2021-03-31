@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ModeAI/AIInit.gd" type="Script" id=1]
 [ext_resource path="res://ModeAI/IAPlayer.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scene/game/SpControl.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scene/game/HpControl.tscn" type="PackedScene" id=5]
 [ext_resource path="res://graphics/Sprite/image1.jpg" type="Texture" id=6]
+[ext_resource path="res://objects/Pause.tscn" type="PackedScene" id=7]
 
 [node name="MultiNode" type="Node2D"]
 position = Vector2( 2, 2 )
@@ -22,10 +23,10 @@ texture = ExtResource( 6 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PoolVector2Array( -0.464935, 18.3156, -3.29337, 500.562, 1029.08, 499.148, 1030.5, -4.31182, 1277.98, 257.318, 972.514, 616.528, -34.4061, 578.344, -205.526, 233.276 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 247.783, 245.567 )
 
-[node name="IA" parent="." instance=ExtResource( 2 )]
+[node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 816.846, 248.974 )
 
 [node name="HpControlJ1" parent="." instance=ExtResource( 5 )]
@@ -51,3 +52,5 @@ margin_left = 804.805
 margin_top = 117.859
 margin_right = 804.805
 margin_bottom = 117.859
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 7 )]

@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/btn_continuer.gd" type="Script" id=2]
 [ext_resource path="res://ModeMulti/Pause.gd" type="Script" id=3]
+[ext_resource path="res://objects/End.gd" type="Script" id=4]
+[ext_resource path="res://objects/TextVictory.gd" type="Script" id=5]
+[ext_resource path="res://resources/fnt_score.tres" type="DynamicFont" id=6]
+[ext_resource path="res://objects/EndVictory.gd" type="Script" id=7]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
 
 [node name="Pause" type="Control" parent="."]
-pause_mode = 2
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -47,3 +51,79 @@ margin_top = 357.685
 margin_right = 688.524
 margin_bottom = 433.685
 text = "EXIT"
+
+[node name="End" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Victory" type="ColorRect" parent="End"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextVictory" type="Label" parent="End/Victory"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -359.669
+margin_top = -103.167
+margin_right = -310.669
+margin_bottom = -74.1666
+rect_scale = Vector2( 8, 8 )
+custom_fonts/font = ExtResource( 6 )
+text = "
+"
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="End"]
+wait_time = 2.0
+one_shot = true
+
+[node name="EndVictory" type="ColorRect" parent="End"]
+visible = false
+margin_right = 1102.0
+margin_bottom = 599.0
+color = Color( 0, 0, 0, 0.470588 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option1" parent="End/EndVictory" instance=ExtResource( 1 )]
+margin_left = 400.0
+margin_top = 117.0
+margin_right = 685.0
+margin_bottom = 192.0
+action_mode = 0
+text = "SELECTION DU MODE DE JEU"
+reference_path = "res://scene/menu/MenuGameType.tscn"
+
+[node name="Menu" parent="End/EndVictory" instance=ExtResource( 1 )]
+margin_left = 397.175
+margin_top = 237.413
+margin_right = 687.175
+margin_bottom = 307.413
+text = "MENU"
+reference_path = "res://scene/menu/MainTileScreen.tscn"
+
+[node name="Exit" parent="End/EndVictory" instance=ExtResource( 1 )]
+margin_left = 395.524
+margin_top = 357.685
+margin_right = 688.524
+margin_bottom = 433.685
+text = "EXIT"
+[connection signal="timeout" from="End/Timer" to="End/EndVictory" method="_on_Timer_timeout"]

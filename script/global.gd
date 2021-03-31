@@ -9,3 +9,5 @@ var typeGame = "1vs1"
 var typeAttackJ1 = "";
 var typeAttackJ2 = "";
 var typeAttackIA = "";
+
+var stateGame = "game"
