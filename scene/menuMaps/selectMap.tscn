@@ -36,34 +36,29 @@ __meta__ = {
 }
 
 [node name="maps" type="Node2D" parent="."]
+position = Vector2( 86.4434, 5.0659 )
 scale = Vector2( 1.5, 1.5 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="amphi_1" parent="maps" instance=ExtResource( 4 )]
+[node name="map1" parent="maps" instance=ExtResource( 4 )]
 position = Vector2( -174.065, -21.0224 )
 
-[node name="amphi_2" parent="maps" instance=ExtResource( 4 )]
+[node name="map2" parent="maps" instance=ExtResource( 4 )]
 position = Vector2( -58.8628, -20.1815 )
 
-[node name="amphi_3" parent="maps" instance=ExtResource( 4 )]
+[node name="map3" parent="maps" instance=ExtResource( 4 )]
 position = Vector2( 59.7036, -22.7042 )
 
-[node name="cafet" parent="maps" instance=ExtResource( 4 )]
-position = Vector2( 171.543, -24.386 )
+[node name="map4" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( -173.531, 73.8878 )
 
-[node name="couloir_1" parent="maps" instance=ExtResource( 4 )]
-position = Vector2( -172.384, 75.6807 )
+[node name="map5" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( -55.6313, 78.2005 )
 
-[node name="couloir_amphi" parent="maps" instance=ExtResource( 4 )]
-position = Vector2( -58.0219, 74.8398 )
-
-[node name="exterieur_1" parent="maps" instance=ExtResource( 4 )]
-position = Vector2( 62.2264, 76.5215 )
-
-[node name="exterieur_2" parent="maps" instance=ExtResource( 4 )]
-position = Vector2( 171.543, 73.9989 )
+[node name="map6" parent="maps" instance=ExtResource( 4 )]
+position = Vector2( 62.9305, 77.3596 )
 
 [node name="Button" parent="." instance=ExtResource( 5 )]
 margin_left = -377.0
