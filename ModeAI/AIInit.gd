@@ -36,14 +36,14 @@ func getPlayer(player_name):
 
 func getMap(map_name):
 	if map_name == "map1":
-		return "res://graphics/maps/map1.jpg"
+		return "res://graphics/maps/map1.png"
 	elif map_name == "map2":
-		return "res://graphics/maps/map2.jpg"
+		return "res://graphics/maps/map2.png"
 	elif map_name == "map3":
-		return "res://graphics/maps/map3.jpg"
+		return "res://graphics/maps/map3.png"
 	elif map_name == "map4":
-		return "res://graphics/maps/map4.jpg"
+		return "res://graphics/maps/map4.png"
 	elif map_name == "map5":
-		return "res://graphics/maps/map5.jpg"
+		return "res://graphics/maps/map5.png"
 	elif map_name == "map6":
-		return "res://graphics/maps/map6.jpg"
+		return "res://graphics/maps/map6.png"
