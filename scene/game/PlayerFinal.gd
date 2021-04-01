@@ -4,7 +4,6 @@ var life:int = 100
 var dead = false
 var isHit = false
 var endGame = false
-
 var vel = Vector2()
 var GRAVITY = 1000
 var isAttaking = false
@@ -20,9 +19,11 @@ func setSprite(nom):
 func _physics_process(delta):
 	vel.y += GRAVITY * delta
 	vel = move_and_slide(vel, UP*delta)
-	if get_parent().get_node("Player2").life <= 0:
+	if get_parent().get_node("Player2").life <= 0 and endGame == false:
 		endGame = true
+		
 		$AnimationPlayer.play("victory")
+
 	elif dead == false and endGame == false:
 		movement_loop()
 
@@ -40,7 +41,6 @@ func movement_loop():
 	#mouvements de base
 	if isHit == true:
 		$AnimationPlayer.play("hit")
-		print(life)
 	elif life <= 0 && $AnimationPlayer.current_animation != "dead":
 		dead = true
 		endGame = true
@@ -89,7 +89,6 @@ func _on_Body_area_entered(area):
 		var spControl = get_parent().get_node("SpControlJ2").get_node("Sp")
 		var hpControl = get_parent().get_node("HpControlJ1").get_node("Hp")
 		
-		print(Global.typeAttackJ2)
 		if Global.typeAttackJ2 == "punch" or Global.typeAttackIA == "punch":
 			life = life - 10
 			hpControl.value -=10
@@ -108,6 +107,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AttackArea/CollisionShape2D1.disabled = true
 		$AttackArea/CollisionShape2D2.disabled = true
 		isAttaking = false
+		
 	#desactive l'animation hit
 	elif anim_name == "hit":
 		isHit = false

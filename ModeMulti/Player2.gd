@@ -20,7 +20,7 @@ func setSprite(nom):
 func _physics_process(delta):
 	vel.y += GRAVITY * delta
 	vel = move_and_slide(vel, UP*delta)
-	if get_parent().get_node("Player1").life <= 0:
+	if get_parent().get_node("Player1").life <= 0 and endGame == false:
 		endGame = true
 		$AnimationPlayer.play("victory")
 	elif dead == false and endGame == false:
@@ -40,7 +40,6 @@ func movement_loop():
 	#mouvements de base
 	if isHit == true:
 		$AnimationPlayer.play("hit")
-		print(life)
 	elif life <= 0 && $AnimationPlayer.current_animation != "dead":
 		dead = true
 		endGame = true
@@ -90,11 +89,11 @@ func _on_Body_area_entered(area):
 		var hpControl = get_parent().get_node("HpControlJ2").get_node("Hp")
 		
 		print(Global.typeAttackJ2)
-		if Global.typeAttackJ2 == "punch" or Global.typeAttackIA == "punch":
+		if Global.typeAttackJ1 == "punch" or Global.typeAttackIA == "punch":
 			life = life - 10
 			hpControl.value -=10
 			spControl.value += 15
-		elif Global.typeAttackJ2 == "punch2" or Global.typeAttackIA == "punch2":
+		elif Global.typeAttackJ1 == "punch2" or Global.typeAttackIA == "punch2":
 			life = life - 15
 			hpControl.value -=15
 			spControl.value += 20

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/btn_continuer.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://objects/TextVictory.gd" type="Script" id=5]
 [ext_resource path="res://resources/fnt_score.tres" type="DynamicFont" id=6]
 [ext_resource path="res://objects/EndVictory.gd" type="Script" id=7]
+[ext_resource path="res://graphics/Sounds/se_menu_edgechallenge_pressstart.wav" type="AudioStream" id=8]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 pause_mode = 2
@@ -37,6 +38,9 @@ action_mode = 0
 text = "CONTINUE"
 script = ExtResource( 2 )
 
+[node name="Sound1" type="AudioStreamPlayer2D" parent="Pause/Button3"]
+stream = ExtResource( 8 )
+
 [node name="Button2" parent="Pause" instance=ExtResource( 1 )]
 margin_left = 397.175
 margin_top = 237.413
@@ -45,12 +49,18 @@ margin_bottom = 307.413
 text = "MENU"
 reference_path = "res://scene/menu/MainTileScreen.tscn"
 
+[node name="Sound1" type="AudioStreamPlayer2D" parent="Pause/Button2"]
+stream = ExtResource( 8 )
+
 [node name="Button" parent="Pause" instance=ExtResource( 1 )]
 margin_left = 395.524
 margin_top = 357.685
 margin_right = 688.524
 margin_bottom = 433.685
 text = "EXIT"
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="Pause/Button"]
+stream = ExtResource( 8 )
 
 [node name="End" type="Control" parent="."]
 visible = false
@@ -112,6 +122,9 @@ action_mode = 0
 text = "SELECTION DU MODE DE JEU"
 reference_path = "res://scene/menu/MenuGameType.tscn"
 
+[node name="Sound1" type="AudioStreamPlayer2D" parent="End/EndVictory/Option1"]
+stream = ExtResource( 8 )
+
 [node name="Menu" parent="End/EndVictory" instance=ExtResource( 1 )]
 margin_left = 397.175
 margin_top = 237.413
@@ -119,6 +132,9 @@ margin_right = 687.175
 margin_bottom = 307.413
 text = "MENU"
 reference_path = "res://scene/menu/MainTileScreen.tscn"
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="End/EndVictory/Menu"]
+stream = ExtResource( 8 )
 
 [node name="Exit" parent="End/EndVictory" instance=ExtResource( 1 )]
 margin_left = 395.524

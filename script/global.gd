@@ -1,5 +1,6 @@
 extends Node
 
+var EtatMusic = true;
 var player1 = "bakari"
 var player2 = "bakari"
 var map = "map1"

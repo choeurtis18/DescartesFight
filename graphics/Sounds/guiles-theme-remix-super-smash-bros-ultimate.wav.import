@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/guiles-theme-remix-super-smash-bros-ultimate.wav-0e91aa2364dc427156342bc24547ac9a.sample"
+
+[deps]
+
+source_file="res://graphics/Sounds/guiles-theme-remix-super-smash-bros-ultimate.wav"
+dest_files=[ "res://.import/guiles-theme-remix-super-smash-bros-ultimate.wav-0e91aa2364dc427156342bc24547ac9a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

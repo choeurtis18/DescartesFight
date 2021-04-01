@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/se_menu_edgechallenge_pressstart.wav-e357aae25bbc63b62a3c8e1ffb8c01aa.sample"
+
+[deps]
+
+source_file="res://graphics/Sounds/se_menu_edgechallenge_pressstart.wav"
+dest_files=[ "res://.import/se_menu_edgechallenge_pressstart.wav-e357aae25bbc63b62a3c8e1ffb8c01aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

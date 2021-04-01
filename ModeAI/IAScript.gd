@@ -44,7 +44,9 @@ func movement_loop(delta):
 			$AnimationAI.play("hit")
 	elif life <= 0 && $AnimationAI.current_animation != "dead":
 		dead = true
-		$AnimationAI.play("dead")
+		if(yield($AnimationAI, "animation_finished")):
+			$AnimationAI.play("dead")
+		
 	elif -100<x and x<100 :
 		if cooldownTimer.is_stopped():
 			cooldownTimer.start(cooldown)

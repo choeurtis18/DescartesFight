@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/gobackButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://graphics/BackGround/BackGround_2.jpg" type="Texture" id=2]
+[ext_resource path="res://Fonts/Pixel Intv.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://scene/menu/CheckButton.gd" type="Script" id=3]
+[ext_resource path="res://graphics/BackGround/fond_option.png" type="Texture" id=4]
+[ext_resource path="res://graphics/BackGround/Menu_commandes.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Control"]
 __meta__ = {
@@ -14,11 +21,36 @@ margin_top = -9.51361
 margin_right = 1692.86
 margin_bottom = 1053.49
 rect_scale = Vector2( 0.65, 0.65 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="btnBack" parent="." instance=ExtResource( 1 )]
-margin_left = 416.0
-margin_top = 400.0
-margin_right = 638.0
-margin_bottom = 462.0
+margin_left = 243.391
+margin_top = 101.399
+margin_right = 465.391
+margin_bottom = 163.399
+custom_fonts/font = SubResource( 1 )
+flat = true
 reference_path = "res://scene/menu/MainTileScreen.tscn"
+
+[node name="Sound1" type="AudioStreamPlayer" parent="btnBack"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 502.5
+margin_top = -14.045
+margin_right = 2616.5
+margin_bottom = 2816.96
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 541.304
+margin_top = 15.874
+margin_right = 617.304
+margin_bottom = 55.874
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Music"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CheckButton" to="CheckButton" method="_on_CheckButton_pressed"]

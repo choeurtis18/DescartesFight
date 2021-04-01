@@ -68,6 +68,8 @@ text = "MODE 1 VS IA"
 flat = true
 reference_path = "res://scene/menuPlayers/selectPlayer.tscn"
 
+[node name="Sound1" type="AudioStreamPlayer" parent="VBoxContainer/mnu1vIA"]
+
 [node name="mnu1v1" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 54.0
 margin_right = 373.0
@@ -82,6 +84,8 @@ text = "MODE 1 VS 1"
 flat = true
 reference_path = "res://scene/menuPlayers/selectPlayer.tscn"
 
+[node name="Sound1" type="AudioStreamPlayer" parent="VBoxContainer/mnu1v1"]
+
 [node name="mnuExit" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 108.0
 margin_right = 373.0
@@ -95,3 +99,5 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "RETOUR"
 flat = true
 reference_path = "res://scene/menu/MainTileScreen.tscn"
+
+[node name="Sound1" type="AudioStreamPlayer" parent="VBoxContainer/mnuExit"]
