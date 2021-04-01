@@ -5,6 +5,7 @@ var player1_id = 1
 var player2_id = 1
 var player1_select = false
 var player2_select = true
+var Sound = load("res://graphics/sounds/vc_menu_narration_choosechara.wav")
 
 onready var backGround = get_node("backGround")
 onready var msg = get_node("msg")
@@ -15,6 +16,9 @@ onready var player_view2 = get_node("preview_player2")
 
 
 func _ready():
+	if !$Sound2.is_playing():
+			$Sound2.stream = Sound
+			$Sound2.play()	
 	for face in portraits.get_children():
 		if face.name == "bakari" :
 			face.set_player("bakari")

@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/fnt_score.tres" type="DynamicFont" id=1]
 [ext_resource path="res://graphics/BackGround/BackGround_1.png" type="Texture" id=2]
 [ext_resource path="res://script/menuMaps/selectMap.gd" type="Script" id=3]
 [ext_resource path="res://scene/menuMaps/map.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://graphics/Sounds/se_menu_edgechallenge_pressstart.wav" type="AudioStream" id=6]
+[ext_resource path="res://Fonts/Pixel Intv.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+font_data = ExtResource( 7 )
 
 [node name="selectMap" type="Node2D"]
 script = ExtResource( 3 )
@@ -65,5 +71,11 @@ margin_left = -377.0
 margin_top = -205.0
 margin_right = -255.0
 margin_bottom = -159.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "BACK"
+flat = true
 reference_path = "res://scene/menuPlayers/selectPlayer.tscn"
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource( 6 )

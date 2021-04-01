@@ -43,6 +43,12 @@ func _process(delta):
 			Global.map = name
 			map_select = true
 			
+			if Global.EtatMusic == true:
+				MusicController.stop_music()
+				MusicController.play_music2()
+			else:
+				MusicController.stop_music()
+			
 			print(Global.typeGame)
 			
 			if Global.typeGame == "MODE 1 VS IA":

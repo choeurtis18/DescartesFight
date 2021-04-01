@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://resources/fnt_score.tres" type="DynamicFont" id=1]
 [ext_resource path="res://graphics/BackGround/BackGround_1.png" type="Texture" id=2]
@@ -6,6 +6,13 @@
 [ext_resource path="res://scene/menuPlayers/preview_player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://script/menuPlayers/selectPlayer.gd" type="Script" id=5]
 [ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://graphics/Sounds/vc_menu_narration_choosechara.wav" type="AudioStream" id=7]
+[ext_resource path="res://Fonts/Pixel Intv.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://graphics/Sounds/se_menu_edgechallenge_pressstart.wav" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+font_data = ExtResource( 8 )
 
 [node name="selectPlayer" type="Node2D"]
 position = Vector2( 395.559, 117.599 )
@@ -74,9 +81,17 @@ position = Vector2( 302.736, 0 )
 scale = Vector2( 1.8, 1.8 )
 
 [node name="Button" parent="." instance=ExtResource( 6 )]
-margin_left = -374.595
-margin_top = -200.657
-margin_right = -291.595
-margin_bottom = -172.657
+margin_left = -375.0
+margin_top = -201.0
+margin_right = -259.0
+margin_bottom = -151.0
+custom_fonts/font = SubResource( 1 )
 text = "Back"
+flat = true
 reference_path = "res://scene/menu/MenuGameType.tscn"
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource( 9 )
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )

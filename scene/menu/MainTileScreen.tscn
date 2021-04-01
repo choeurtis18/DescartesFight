@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://graphics/BackGround/fond.png" type="Texture" id=1]
+[ext_resource path="res://graphics/BackGround/BackGround_2.png" type="Texture" id=1]
 [ext_resource path="res://objects/menu_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fonts/Pixel Intv.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://scene/menu/MainTileScreen.gd" type="Script" id=4]
+[ext_resource path="res://graphics/Sounds/se_menu_edgechallenge_pressstart.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -28,6 +30,7 @@ margin_top = 275.746
 margin_right = 685.489
 margin_bottom = 275.746
 rect_scale = Vector2( 0.322553, 0.274477 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,6 +78,9 @@ text = "NOUVELLE PARTIE"
 flat = true
 reference_path = "res://scene/menu/MenuGameType.tscn"
 
+[node name="Sound1" type="AudioStreamPlayer" parent="VBoxContainer/mnuNewGame"]
+stream = ExtResource( 5 )
+
 [node name="mnuOptions" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 73.0
 margin_right = 427.0
@@ -88,6 +94,9 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "OPTIONS"
 flat = true
 reference_path = "res://scene/menu/OptionsScene.tscn"
+
+[node name="Sound1" type="AudioStreamPlayer" parent="VBoxContainer/mnuOptions"]
+stream = ExtResource( 5 )
 
 [node name="mnuExit" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 147.0
