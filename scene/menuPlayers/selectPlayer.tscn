@@ -39,7 +39,7 @@ custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Choisissez votre combatant"
+text = "Choisissez votre combattant"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -27,6 +27,7 @@ MusicController="*res://Autoloads/MusicController.tscn"
 [display]
 
 window/size/width=1100
+window/size/resizable=false
 
 [input]
 
